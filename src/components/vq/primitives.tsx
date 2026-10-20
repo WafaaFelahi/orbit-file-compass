@@ -169,7 +169,7 @@ export function Panel({
   glow,
   children,
   ...props
-}: React.HTMLAttributes<HTMLDivElement> & { glow?: "primary" | "success" }) {
+}: React.HTMLAttributes<HTMLDivElement> & { glow?: "primary" | "success" | undefined }) {
   return (
     <div
       className={cn(
