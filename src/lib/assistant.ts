@@ -179,6 +179,6 @@ export function answer(query: string, lang: Lang = "en"): ChatMessage {
   return {
     ...base,
     text: `${prefix}I searched 14,820 indexed items for "${query}". Here are the closest matches from your local semantic index.`,
-    files: [HADOOP[0], ML[0]],
+    files: [HADOOP[0]!, ML[0]!],
   };
 }

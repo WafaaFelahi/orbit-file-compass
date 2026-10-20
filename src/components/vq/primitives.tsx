@@ -43,8 +43,8 @@ export const btnVariants = cva(
 export interface BtnProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof btnVariants> {
-  icon?: LucideIcon;
-  iconRight?: LucideIcon;
+  icon?: LucideIcon | undefined;
+  iconRight?: LucideIcon | undefined;
 }
 
 export const Btn = React.forwardRef<HTMLButtonElement, BtnProps>(
@@ -102,13 +102,13 @@ export function Chip({
   className,
   children,
 }: {
-  tone?: Tone;
-  size?: "xs" | "sm" | "md";
-  caps?: boolean;
-  dot?: boolean;
-  pulse?: boolean;
-  icon?: LucideIcon;
-  className?: string;
+  tone?: Tone | undefined;
+  size?: "xs" | "sm" | "md" | undefined;
+  caps?: boolean | undefined;
+  dot?: boolean | undefined;
+  pulse?: boolean | undefined;
+  icon?: LucideIcon | undefined;
+  className?: string | undefined;
   children: React.ReactNode;
 }) {
   return (
@@ -125,9 +125,9 @@ export function Dot({
   pulse,
   className,
 }: {
-  tone?: Tone;
-  pulse?: boolean;
-  className?: string;
+  tone?: Tone | undefined;
+  pulse?: boolean | undefined;
+  className?: string | undefined;
 }) {
   return (
     <span className={cn("relative inline-flex size-1.5 shrink-0 rounded-full", dotTone[tone], className)}>
@@ -192,9 +192,9 @@ export function IconTile({
   className,
 }: {
   icon: LucideIcon;
-  tone?: Tone;
-  size?: "sm" | "md" | "lg";
-  className?: string;
+  tone?: Tone | undefined;
+  size?: "sm" | "md" | "lg" | undefined;
+  className?: string | undefined;
 }) {
   const s = size === "sm" ? "size-7 [&_svg]:size-3.5" : size === "lg" ? "size-11 [&_svg]:size-5" : "size-9 [&_svg]:size-4";
   return (
@@ -219,12 +219,12 @@ export function SectionTitle({
   iconTone = "primary",
   className,
 }: {
-  icon?: LucideIcon;
+  icon?: LucideIcon | undefined;
   title: React.ReactNode;
-  subtitle?: React.ReactNode;
-  right?: React.ReactNode;
-  iconTone?: Tone;
-  className?: string;
+  subtitle?: React.ReactNode | undefined;
+  right?: React.ReactNode | undefined;
+  iconTone?: Tone | undefined;
+  className?: string | undefined;
 }) {
   return (
     <div className={cn("flex items-start justify-between gap-3", className)}>
@@ -250,12 +250,12 @@ export function PageHeader({
   actions,
   className,
 }: {
-  eyebrow?: React.ReactNode;
+  eyebrow?: React.ReactNode | undefined;
   title: React.ReactNode;
-  badge?: React.ReactNode;
-  description?: React.ReactNode;
-  actions?: React.ReactNode;
-  className?: string;
+  badge?: React.ReactNode | undefined;
+  description?: React.ReactNode | undefined;
+  actions?: React.ReactNode | undefined;
+  className?: string | undefined;
 }) {
   return (
     <header className={cn("flex flex-wrap items-end justify-between gap-4", className)}>
@@ -298,14 +298,14 @@ export function StatCard({
 }: {
   label: React.ReactNode;
   value: React.ReactNode;
-  unit?: React.ReactNode;
-  sub?: React.ReactNode;
-  icon?: LucideIcon;
-  tone?: Tone;
-  right?: React.ReactNode;
-  progress?: number;
-  children?: React.ReactNode;
-  className?: string;
+  unit?: React.ReactNode | undefined;
+  sub?: React.ReactNode | undefined;
+  icon?: LucideIcon | undefined;
+  tone?: Tone | undefined;
+  right?: React.ReactNode | undefined;
+  progress?: number | undefined;
+  children?: React.ReactNode | undefined;
+  className?: string | undefined;
 }) {
   return (
     <Panel
@@ -347,10 +347,10 @@ export function Bar({
   height = "h-1.5",
 }: {
   value: number;
-  tone?: Tone;
-  gradient?: boolean;
-  className?: string;
-  height?: string;
+  tone?: Tone | undefined;
+  gradient?: boolean | undefined;
+  className?: string | undefined;
+  height?: string | undefined;
 }) {
   return (
     <div className={cn("w-full overflow-hidden rounded-full bg-surface-3", height, className)}>
@@ -375,8 +375,8 @@ export function Check2({
 }: {
   checked: boolean;
   onChange: (v: boolean) => void;
-  label?: string;
-  className?: string;
+  label?: string | undefined;
+  className?: string | undefined;
 }) {
   return (
     <button
@@ -412,7 +412,7 @@ export function SegTabs<T extends string>({
   value: T;
   onChange: (v: T) => void;
   items: { value: T; label: React.ReactNode; count?: number | string; tone?: Tone }[];
-  className?: string;
+  className?: string | undefined;
 }) {
   return (
     <div className={cn("inline-flex flex-wrap items-center gap-1 rounded-lg border border-border bg-surface-1 p-1", className)}>
